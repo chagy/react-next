@@ -1,8 +1,26 @@
-import logo from "./logo.svg";
-import "./App.css";
+import { Route, Switch } from "react-router";
+import Layout from "./components/layout/Layout";
+import MainNavigation from "./components/layout/MainNavigation";
+import AllMeetups from "./pages/AllMeetups";
+import Favorites from "./pages/Favorites";
+import NewMeet from "./pages/NewMeet";
 
 function App() {
-  return <div className="App">Hello World</div>;
+  return (
+    <Layout>
+      <Switch>
+        <Route path="/" exact>
+          <AllMeetups />
+        </Route>
+        <Route path="/new-meetup">
+          <NewMeet />
+        </Route>
+        <Route path="/favorites">
+          <Favorites />
+        </Route>
+      </Switch>
+    </Layout>
+  );
 }
 
 export default App;
